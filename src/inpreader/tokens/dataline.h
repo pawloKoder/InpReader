@@ -4,11 +4,15 @@
 #include <vector>
 #include <string>
 
+#include "tokens/token.h"
 
-namespace Token {
 
-struct DataLine {
+namespace Tokens {
+
+struct DataLine : public Token {
 	std::vector <std::string> data;
+	
+	DataLine(std::string line);
 };
 
 }

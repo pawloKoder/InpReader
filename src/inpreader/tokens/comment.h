@@ -3,11 +3,15 @@
 
 #include <string>
 
+#include "tokens/token.h"
 
-namespace Token {
 
-struct Comment {
+namespace Tokens {
+
+struct Comment : public Token {
 	std::string content;
+	
+	Comment(std::string line);
 };
 
 }
