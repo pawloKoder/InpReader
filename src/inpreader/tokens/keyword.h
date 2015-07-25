@@ -1,6 +1,7 @@
 #ifndef KEYWORD_H
 #define KEYWORD_H
 
+#include <ostream>
 #include <string>
 #include <map>
 
@@ -15,7 +16,12 @@ struct Keyword : public Token {
 	std::map <std::string, std::string> parameters;
 	
 	Keyword(std::string line);
+	
+	virtual void print(std::ostream &) const;
 };
+
+
+std::ostream & operator<< (std::ostream & stream, const Keyword & key);
 
 }
 

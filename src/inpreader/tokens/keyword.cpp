@@ -22,3 +22,17 @@ Tokens::Keyword::Keyword(std::string line)
 		parameters[token.substr(0, equPosition)] = token.substr(equPosition+1);
 	}
 }
+
+
+void Tokens::Keyword::print(std::ostream & stream) const
+{
+	stream << (*this);
+}
+
+
+std::ostream & Tokens::operator<< (std::ostream & stream, const Tokens::Keyword & key) {
+	stream << "Keyword : " << key.name << "; ";
+	for (auto item : key.parameters)
+		stream << item.first << "->" << item.second << "; ";
+	return stream;
+}

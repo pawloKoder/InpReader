@@ -1,6 +1,7 @@
 #ifndef DATALINE_H
 #define DATALINE_H
 
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -13,7 +14,12 @@ struct DataLine : public Token {
 	std::vector <std::string> data;
 	
 	DataLine(std::string line);
+	
+	virtual void print(std::ostream &) const;
 };
+
+
+std::ostream & operator<< (std::ostream & stream, const Tokens::DataLine & data);
 
 }
 
