@@ -5,6 +5,8 @@
 #include <functional>
 #include <string>
 
+#include "keywords/keyword.h"
+
 
 Tokens::Keyword::Keyword(std::string line)
 {
@@ -21,6 +23,12 @@ Tokens::Keyword::Keyword(std::string line)
 		std::size_t equPosition = token.find("=");
 		parameters[token.substr(0, equPosition)] = token.substr(equPosition+1);
 	}
+}
+
+
+Keywords::Keyword *  Tokens::Keyword::appendToKeyword(Keywords::Keyword * keyword)
+{
+	return keyword->appendKeyword(this);
 }
 
 

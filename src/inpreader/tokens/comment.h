@@ -7,6 +7,13 @@
 #include "tokens/token.h"
 
 
+namespace Keywords {
+
+class Keyword;
+
+}
+
+
 namespace Tokens {
 
 struct Comment : public Token {
@@ -14,6 +21,7 @@ struct Comment : public Token {
 
 	Comment(std::string line);
 
+	virtual Keywords::Keyword * appendToKeyword(Keywords::Keyword *);
 	virtual void print(std::ostream &) const;
 };
 

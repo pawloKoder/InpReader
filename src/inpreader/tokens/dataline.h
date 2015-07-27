@@ -8,6 +8,13 @@
 #include "tokens/token.h"
 
 
+namespace Keywords {
+
+class Keyword;
+
+}
+
+
 namespace Tokens {
 
 struct DataLine : public Token {
@@ -15,6 +22,7 @@ struct DataLine : public Token {
 	
 	DataLine(std::string line);
 	
+	virtual Keywords::Keyword * appendToKeyword(Keywords::Keyword *);
 	virtual void print(std::ostream &) const;
 };
 
