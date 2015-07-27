@@ -20,7 +20,7 @@ Keywords::Keyword* Keywords::Node::appendDataLine(const Tokens::DataLine * line)
 		data.number = std::stoi(line->data[0]);
 
 	for (int i = 0; i < std::max((int)line->data.size() - 1, 3); ++i)
-		data.coordinate[i] = std::stoi(line->data[1 + i]);
+		data.coordinate[i] = std::stod(line->data[1 + i]);
 
 	nodes.push_back(data);
 
