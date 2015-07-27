@@ -11,6 +11,7 @@
 #include "keywords/material.h"
 #include "keywords/part.h"
 #include "keywords/preprint.h"
+#include "keywords/step.h"
 #include "tokens/keyword.h"
 
 #include <functional>
@@ -46,7 +47,8 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 		std::make_pair(Element::keyName, [this](){ return new Element(this); }),
 		std::make_pair(Material::keyName, [this](){ return new Material(this); }),
 		std::make_pair(Part::keyName, [this](){ return new Part(this); }),
-		std::make_pair(Preprint::keyName, [this](){ return new Preprint(this); })
+		std::make_pair(Preprint::keyName, [this](){ return new Preprint(this); }),
+		std::make_pair(Step::keyName, [this](){ return new Step(this); })
 	};
 
 	for (auto childDef : possibleChildren)

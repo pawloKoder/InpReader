@@ -1,21 +1,31 @@
-#ifndef STEP_H
-#define STEP_H
+#ifndef KEYWORDS_STEP_H
+#define KEYWORDS_STEP_H
 
+#include <memory>
 #include <string>
+#include <vector>
+
+#include "keywords/keyword.h"
 
 
-class Dynamic;
-class Static; // Manual reference : 18.31
-
+namespace Keywords {
 
 /* Manual reference : 18.36 */
-class Step {
-	std::string name;
-	bool nlgeom;
+class Step : public Keyword {
+public:
+	static const std::string keyName;
+	static const std::string keyEndName;
 
-	Dynamic *dynamicAnalisis;
-	Static *staticAnalisis;
+    Step(Keyword * parent);
+
+	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
+
+private:
+	std::string name;
+	std::vector <std::shared_ptr <Keywords::Keyword> > children;
 };
 
+}
 
-#endif //STEP_H
+#endif //KEYWORDS_STEP_H
