@@ -32,6 +32,8 @@ Keywords::Keyword * Keywords::Part::appendDataLine(const Tokens::DataLine*)
 Keywords::Keyword * Keywords::Part::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
+		std::make_pair(Node::keyName, [this](){ return new Node(this); }),
+		std::make_pair(Element::keyName, [this](){ return new Element(this); }),
 	};
 
 	for (auto childDef : possibleChildren)
