@@ -1,7 +1,5 @@
 #include <keywords/node.h>
 
-#include <iostream>
-
 #include "tokens/dataline.h"
 
 
@@ -15,7 +13,7 @@ Keywords::Node::Node(Keywords::Keyword* parent): Keyword(parent)
 Keywords::Keyword* Keywords::Node::appendDataLine(const Tokens::DataLine * line)
 {
 	Node::NodeData data;
-	std::cout << "Node append DataLine\n";
+
 	if (line->data.size() >= 1)
 		data.number = std::stoi(line->data[0]);
 

@@ -41,13 +41,14 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 		std::make_pair(Element::keyName, [this](){ return new Element(this); })
 	};
 
-	std::cout << "Base Append Keyword " << token->name << std::endl;
-
 	for (auto childDef : possibleChildren)
 		if (token->name == childDef.first) {
 			auto child = std::shared_ptr <Keywords::Keyword>(childDef.second());
 			children.push_back(child);
 			return child.get();
 		}
+
+	std::cout << "Unknown Keyword form Base: " << token->name << std::endl;
+
 	return this;
 }
