@@ -1,10 +1,11 @@
 include_directories (${inpreader_SOURCE_DIR}/src/inpreader)
 
 set (lib_SOURCES
-    keywords/node.cpp
     keywords/basekeyword.cpp
+    keywords/element.cpp
     keywords/heading.cpp
     keywords/keyword.cpp
+    keywords/node.cpp
     parser.cpp
     tokenizer.cpp
     tokens/token.cpp
