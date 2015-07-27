@@ -8,6 +8,7 @@
 #include "keywords/heading.h"
 #include "keywords/node.h"
 #include "keywords/material.h"
+#include "keywords/part.h"
 #include "keywords/preprint.h"
 #include "tokens/keyword.h"
 
@@ -42,6 +43,7 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 		std::make_pair(Node::keyName, [this](){ return new Node(this); }),
 		std::make_pair(Element::keyName, [this](){ return new Element(this); }),
 		std::make_pair(Material::keyName, [this](){ return new Material(this); }),
+		std::make_pair(Part::keyName, [this](){ return new Part(this); }),
 		std::make_pair(Preprint::keyName, [this](){ return new Preprint(this); })
 	};
 

@@ -9,6 +9,7 @@ set (lib_SOURCES
     keywords/keyword.cpp
     keywords/material.cpp
     keywords/node.cpp
+    keywords/part.cpp
     keywords/preprint.cpp
     parser.cpp
     tokenizer.cpp
