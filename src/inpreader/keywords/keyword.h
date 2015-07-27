@@ -23,7 +23,7 @@ public:
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
 
-private:
+protected:
 	Keyword * parent;
 };
 

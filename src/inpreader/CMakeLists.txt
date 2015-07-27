@@ -2,9 +2,12 @@ include_directories (${inpreader_SOURCE_DIR}/src/inpreader)
 
 set (lib_SOURCES
     keywords/basekeyword.cpp
+    keywords/density.cpp
+    keywords/elastic.cpp
     keywords/element.cpp
     keywords/heading.cpp
     keywords/keyword.cpp
+    keywords/material.cpp
     keywords/node.cpp
     parser.cpp
     tokenizer.cpp

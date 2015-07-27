@@ -10,7 +10,7 @@ Keywords::Keyword::Keyword(Keywords::Keyword * p):
 
 Keywords::Keyword * Keywords::Keyword::appendComment(const Tokens::Comment * token)
 {
-	return parent->appendComment(token);
+	return this;
 }
 
 
