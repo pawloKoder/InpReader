@@ -6,6 +6,7 @@ set (lib_SOURCES
     keywords/boundary.cpp
     keywords/density.cpp
     keywords/dsload.cpp
+    keywords/dynamic.cpp
     keywords/elastic.cpp
     keywords/element.cpp
     keywords/elementset.cpp
