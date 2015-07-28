@@ -9,6 +9,7 @@ set (lib_SOURCES
     keywords/element.cpp
     keywords/elementset.cpp
     keywords/heading.cpp
+    keywords/instance.cpp
     keywords/keyword.cpp
     keywords/material.cpp
     keywords/node.cpp
