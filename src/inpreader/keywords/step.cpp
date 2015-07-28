@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "keywords/boundary.h"
+#include "keywords/cload.h"
 #include "keywords/dsload.h"
 #include "keywords/dynamic.h"
 #include "keywords/static.h"
@@ -29,6 +30,7 @@ Keywords::Keyword * Keywords::Step::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
 		std::make_pair(Boundary::keyName, [this](){ return new Boundary(this); }),
+		std::make_pair(CLoad::keyName, [this](){ return new CLoad(this); }),
 		std::make_pair(DSLoad::keyName, [this](){ return new DSLoad(this); }),
 		std::make_pair(Dynamic::keyName, [this](){ return new Dynamic(this); }),
 		std::make_pair(Static::keyName, [this](){ return new Static(this); }),

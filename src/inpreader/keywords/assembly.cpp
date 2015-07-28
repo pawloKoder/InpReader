@@ -7,6 +7,7 @@
 #include "keywords/nodeset.h"
 #include "keywords/instance.h"
 #include "keywords/surface.h"
+#include "keywords/tie.h"
 #include "tokens/keyword.h"
 
 #include <functional>
@@ -34,6 +35,7 @@ Keywords::Keyword * Keywords::Assembly::appendKeyword(const Tokens::Keyword * to
 		std::make_pair(NodeSet::keyName, [this](){ return new NodeSet(this); }),
 		std::make_pair(Instance::keyName, [this](){ return new Instance(this); }),
 		std::make_pair(Surface::keyName, [this](){ return new Surface(this); }),
+		std::make_pair(Tie::keyName, [this](){ return new Tie(this); }),
 	};
 
 	for (auto childDef : possibleChildren)

@@ -1,9 +1,11 @@
 include_directories (${inpreader_SOURCE_DIR}/src/inpreader)
 
 set (lib_SOURCES
+    keywords/amplitude.cpp
     keywords/assembly.cpp
     keywords/basekeyword.cpp
     keywords/boundary.cpp
+    keywords/cload.cpp
     keywords/density.cpp
     keywords/dsload.cpp
     keywords/dynamic.cpp
@@ -21,6 +23,7 @@ set (lib_SOURCES
     keywords/static.cpp
     keywords/step.cpp
     keywords/surface.cpp
+    keywords/tie.cpp
     parser.cpp
     tokenizer.cpp
     tokens/token.cpp

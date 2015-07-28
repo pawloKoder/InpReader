@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 
+#include "keywords/amplitude.h"
 #include "keywords/assembly.h"
 #include "keywords/boundary.h"
 #include "keywords/element.h"
@@ -42,6 +43,7 @@ Keywords::Keyword * Keywords::BaseKeyword::appendDataLine(const Tokens::DataLine
 Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
+		std::make_pair(Amplitude::keyName, [this](){ return new Amplitude(this); }),
 		std::make_pair(Assembly::keyName, [this](){ return new Assembly(this); }),
 		std::make_pair(Boundary::keyName, [this](){ return new Boundary(this); }),
 		std::make_pair(Heading::keyName, [this](){ return new Heading(this); }),
