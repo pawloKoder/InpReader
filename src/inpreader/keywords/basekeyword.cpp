@@ -5,6 +5,7 @@
 #include <cstdio>
 
 #include "keywords/assembly.h"
+#include "keywords/boundary.h"
 #include "keywords/element.h"
 #include "keywords/heading.h"
 #include "keywords/node.h"
@@ -42,6 +43,7 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
 		std::make_pair(Assembly::keyName, [this](){ return new Assembly(this); }),
+		std::make_pair(Boundary::keyName, [this](){ return new Boundary(this); }),
 		std::make_pair(Heading::keyName, [this](){ return new Heading(this); }),
 		std::make_pair(Node::keyName, [this](){ return new Node(this); }),
 		std::make_pair(Element::keyName, [this](){ return new Element(this); }),
