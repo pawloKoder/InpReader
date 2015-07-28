@@ -15,6 +15,7 @@ set (lib_SOURCES
     keywords/part.cpp
     keywords/preprint.cpp
     keywords/step.cpp
+    keywords/surface.cpp
     parser.cpp
     tokenizer.cpp
     tokens/token.cpp

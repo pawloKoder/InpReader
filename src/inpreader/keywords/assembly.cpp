@@ -5,6 +5,7 @@
 
 #include "keywords/elementset.h"
 #include "keywords/nodeset.h"
+#include "keywords/surface.h"
 #include "tokens/keyword.h"
 
 #include <functional>
@@ -30,6 +31,7 @@ Keywords::Keyword * Keywords::Assembly::appendKeyword(const Tokens::Keyword * to
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
 		std::make_pair(ElementSet::keyName, [this](){ return new ElementSet(this); }),
 		std::make_pair(NodeSet::keyName, [this](){ return new NodeSet(this); }),
+		std::make_pair(Surface::keyName, [this](){ return new Surface(this); }),
 	};
 
 	for (auto childDef : possibleChildren)
