@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 
+#include "keywords/boundary.h"
 #include "tokens/keyword.h"
 
 
@@ -24,6 +25,7 @@ Keywords::Keyword * Keywords::Step::appendDataLine(const Tokens::DataLine*)
 Keywords::Keyword * Keywords::Step::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
+		std::make_pair(Boundary::keyName, [this](){ return new Boundary(this); }),
 	};
 
 	for (auto childDef : possibleChildren)
