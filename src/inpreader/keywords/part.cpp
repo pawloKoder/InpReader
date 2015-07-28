@@ -6,6 +6,7 @@
 #include "keywords/element.h"
 #include "keywords/heading.h"
 #include "keywords/node.h"
+#include "keywords/nodeset.h"
 #include "keywords/material.h"
 #include "keywords/preprint.h"
 #include "tokens/keyword.h"
@@ -33,6 +34,7 @@ Keywords::Keyword * Keywords::Part::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
 		std::make_pair(Node::keyName, [this](){ return new Node(this); }),
+		std::make_pair(NodeSet::keyName, [this](){ return new NodeSet(this); }),
 		std::make_pair(Element::keyName, [this](){ return new Element(this); }),
 	};
 

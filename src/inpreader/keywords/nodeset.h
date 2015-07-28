@@ -1,19 +1,28 @@
-#ifndef NODESET_H
-#define NODESET_H
+#ifndef KEYWORDS_NODESET_H
+#define KEYWORDS_NODESET_H
 
 #include <set>
 #include <string>
 
+#include "keywords/keyword.h"
 
-class Node;
 
-
+namespace Keywords {
 
 /* Manual reference : 14.17 */
-class NodeSet {
+class NodeSet : public Keyword {
+public:
+	static const std::string keyName;
+
+	NodeSet(Keyword * parent);
+    
+	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+
+private:
 	std::string name;
-	std::set<Node*> nodes;
+	std::set<int> nodes;
 };
 
+}
 
-#endif //NODESET_H
+#endif //KEYWORDS_NODESET_H
