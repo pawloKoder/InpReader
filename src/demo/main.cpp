@@ -1,19 +1,29 @@
+#include <algorithm>
 #include <iostream>
+#include <vector>
 
+#include "color.h"
 #include "inpreader/tokenizer.h"
 #include "inpreader/parser.h"
 
 
 int main(int argc, char **argv) {
+	Color::Modifier green(Color::FG_GREEN);
+	Color::Modifier def(Color::FG_DEFAULT);
 	
-	auto tokens = Tokenizer::fromFile("examples/plytka.inp");
+	std::vector <std::string> examples = {
+		"examples/plytka.inp",
+		"examples/ramka.inp",
+		"examples/plyta+rama.inp",
+	};
 	
-	/*for (auto token : tokens) {
-		token->print(std::cout);
-		std::cout << std::endl;
-	}*/
-	
-	Parser::parse(tokens);
+	for (auto example : examples) {
+		std::cout << green << "File " << example << def << std::endl;
+		
+		auto tokens = Tokenizer::fromFile(example);
+		
+		Parser::parse(tokens);
+	}
 	
     return 0;
 }

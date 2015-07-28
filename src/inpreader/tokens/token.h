@@ -20,6 +20,11 @@ struct Token {
 	virtual Keywords::Keyword * appendToKeyword(Keywords::Keyword *) = 0;
 	
 	virtual void print(std::ostream &) const;
+	
+	std::string identifier();
+
+	int lineNum;
+	std::string file;
 };
 
 

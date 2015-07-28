@@ -1,6 +1,7 @@
 #include "tokens/token.h"
 
 #include <ostream>
+#include <string>
 
 #include "tokens/comment.h"
 #include "tokens/dataline.h"
@@ -28,4 +29,11 @@ void Tokens::Token::print(std::ostream & stream) const
 std::ostream & Tokens::operator<< (std::ostream & stream, const Tokens::Token &) {
 	stream << "Unknown token";
 	return stream;
+}
+
+
+
+std::string Tokens::Token::identifier()
+{
+	return file + ":" + std::to_string(lineNum);
 }
