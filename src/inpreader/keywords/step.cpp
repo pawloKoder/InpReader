@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "keywords/boundary.h"
+#include "keywords/static.h"
 #include "tokens/keyword.h"
 
 
@@ -26,6 +27,7 @@ Keywords::Keyword * Keywords::Step::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
 		std::make_pair(Boundary::keyName, [this](){ return new Boundary(this); }),
+		std::make_pair(Static::keyName, [this](){ return new Static(this); }),
 	};
 
 	for (auto childDef : possibleChildren)

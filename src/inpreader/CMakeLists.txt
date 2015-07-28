@@ -16,6 +16,7 @@ set (lib_SOURCES
     keywords/nodeset.cpp
     keywords/part.cpp
     keywords/preprint.cpp
+    keywords/static.cpp
     keywords/step.cpp
     keywords/surface.cpp
     parser.cpp
