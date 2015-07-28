@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdio>
 
+#include "keywords/elementset.h"
 #include "keywords/nodeset.h"
 #include "tokens/keyword.h"
 
@@ -27,6 +28,7 @@ Keywords::Keyword * Keywords::Assembly::appendDataLine(const Tokens::DataLine*)
 Keywords::Keyword * Keywords::Assembly::appendKeyword(const Tokens::Keyword * token)
 {
 	std::vector <std::pair <std::string, std::function<Keyword*()> > > possibleChildren = {
+		std::make_pair(ElementSet::keyName, [this](){ return new ElementSet(this); }),
 		std::make_pair(NodeSet::keyName, [this](){ return new NodeSet(this); }),
 	};
 

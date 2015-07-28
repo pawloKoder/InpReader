@@ -1,18 +1,28 @@
-#ifndef ELEMENTSET_H
-#define ELEMENTSET_H
+#ifndef KEYWORDS_ELEMENTSET_H
+#define KEYWORDS_ELEMENTSET_H
 
 #include <set>
 #include <string>
 
+#include "keywords/keyword.h"
 
-class Element;
 
+namespace Keywords {
 
 /* Manual reference : 5.13 */
-class ElementSet {
+class ElementSet : public Keyword {
+public:
+	static const std::string keyName;
+
+	ElementSet(Keyword * parent);
+    
+	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+
+private:
 	std::string name;
-	std::set<Element*> elements;
+	std::set<int> elements;
 };
 
+}
 
-#endif //ELEMENTSET_H
+#endif //KEYWORDS_ELEMENTSET_H

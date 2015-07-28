@@ -6,10 +6,12 @@ set (lib_SOURCES
     keywords/density.cpp
     keywords/elastic.cpp
     keywords/element.cpp
+    keywords/elementset.cpp
     keywords/heading.cpp
     keywords/keyword.cpp
     keywords/material.cpp
     keywords/node.cpp
+    keywords/nodeset.cpp
     keywords/part.cpp
     keywords/preprint.cpp
     keywords/step.cpp
