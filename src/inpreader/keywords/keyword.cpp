@@ -26,3 +26,7 @@ Keywords::Keyword * Keywords::Keyword::appendKeyword(const Tokens::Keyword * tok
 }
 
 
+void Keywords::Keyword::appendToModel(InpReader::Model *)
+{
+
+}

@@ -66,3 +66,9 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 
 	return this;
 }
+
+
+const std::vector< std::shared_ptr< Keywords::Keyword > >& Keywords::BaseKeyword::getChildren() const
+{
+	return children;
+}

@@ -4,6 +4,12 @@
 #include <string>
 
 
+namespace InpReader {
+
+class Model;
+
+}
+
 namespace Tokens {
 
 class Comment;
@@ -22,6 +28,8 @@ public:
 	virtual Keywords::Keyword * appendComment(const Tokens::Comment *);
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
+
+	virtual void appendToModel(InpReader::Model *);
 
 protected:
 	Keyword * parent;

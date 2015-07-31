@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "color.h"
+#include "inpreader/model.h"
 #include "inpreader/tokenizer.h"
 #include "inpreader/parser.h"
 
@@ -22,7 +23,9 @@ int main(int argc, char **argv) {
 		
 		auto tokens = Tokenizer::fromFile(example);
 		
-		Parser::parse(tokens);
+		auto rootKeyword = Parser::parse(tokens);
+		
+		InpReader::Model m(rootKeyword);
 	}
 	
     return 0;

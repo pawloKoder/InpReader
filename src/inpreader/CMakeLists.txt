@@ -1,6 +1,7 @@
 include_directories (${inpreader_SOURCE_DIR}/src/inpreader)
 
 set (lib_SOURCES
+    model.cpp
     keywords/amplitude.cpp
     keywords/assembly.cpp
     keywords/basekeyword.cpp

@@ -1,5 +1,6 @@
 #include <keywords/node.h>
 
+#include "model.h"
 #include "tokens/dataline.h"
 
 
@@ -12,7 +13,7 @@ Keywords::Node::Node(Keywords::Keyword* parent): Keyword(parent)
 
 Keywords::Keyword* Keywords::Node::appendDataLine(const Tokens::DataLine * line)
 {
-	Node::NodeData data;
+	InpReader::Node data;
 
 	if (line->data.size() >= 1)
 		data.number = std::stoi(line->data[0]);
@@ -25,3 +26,9 @@ Keywords::Keyword* Keywords::Node::appendDataLine(const Tokens::DataLine * line)
 	return this;
 }
 
+
+void Keywords::Node::appendToModel(InpReader::Model * model)
+{
+	for (auto node : nodes)
+		model->appendNode(node);
+}

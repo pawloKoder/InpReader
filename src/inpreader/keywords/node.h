@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "basic.h"
 #include "keywords/keyword.h"
 
 
@@ -17,15 +18,11 @@ public:
 	Node(Keyword * parent);
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+	virtual void appendToModel(InpReader::Model *);
 
-	struct NodeData {
-		int number;
-		double coordinate[3];
-		double dirCosine[3];
-	};
 
 private:
-	std::vector<NodeData> nodes;
+	std::vector<InpReader::Node> nodes;
 };
 
 }

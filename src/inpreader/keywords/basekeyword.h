@@ -18,6 +18,7 @@ public:
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
 	virtual Keywords::Keyword * appendComment(const Tokens::Comment *);
 
+	const std::vector <std::shared_ptr <Keywords::Keyword> > & getChildren() const;
 private:
 	std::vector <std::shared_ptr <Keywords::Keyword> > children;
 };
