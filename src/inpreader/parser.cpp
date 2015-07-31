@@ -7,10 +7,10 @@
 #include "tokens/token.h"
 
 
-std::shared_ptr <Model> Parser::parse(std::vector< std::shared_ptr< Tokens::Token > > tokens)
+std::shared_ptr <Keywords::BaseKeyword> Parser::parse(std::vector < std::shared_ptr< Tokens::Token > > tokens)
 {
-	Keywords::BaseKeyword root;
-	Keywords::Keyword * current = &root;
+	std::shared_ptr <Keywords::BaseKeyword> root(new Keywords::BaseKeyword);
+	Keywords::Keyword * current = root.get();
 
 	for (auto token : tokens) {
 		try {
@@ -21,5 +21,5 @@ std::shared_ptr <Model> Parser::parse(std::vector< std::shared_ptr< Tokens::Toke
 		}
 	}
 	
-	return std::shared_ptr <Model> (new Model);
+	return root;
 }
