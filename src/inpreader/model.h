@@ -23,10 +23,13 @@ public:
 	Model(std::shared_ptr <Keywords::BaseKeyword>);
 
 	void appendNode(InpReader::Node);
+	void appendElement(InpReader::Element);
 	
 	std::vector<InpReader::Node> getNodes();
+	std::vector<InpReader::Element> getElements();
 private:
 	std::map<int, InpReader::Node> nodes;
+	std::map<int, InpReader::Element> elements;
 };
 
 }

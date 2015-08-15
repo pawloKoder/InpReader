@@ -1,5 +1,7 @@
 #include "keywords/element.h"
 
+#include "model.h"
+#include "settings.h"
 #include "tokens/dataline.h"
 
 
@@ -12,7 +14,7 @@ Keywords::Element::Element(Keywords::Keyword* parent): Keyword(parent)
 
 Keywords::Keyword* Keywords::Element::appendDataLine(const Tokens::DataLine * line)
 {
-	ElementData data;
+	InpReader::Element data;
 	
 	if (line->data.size() >= 1)
 		data.number = std::stoi(line->data[0]);
@@ -25,3 +27,11 @@ Keywords::Keyword* Keywords::Element::appendDataLine(const Tokens::DataLine * li
 	return this;
 }
 
+void Keywords::Element::appendToModel(InpReader::Model * model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Element: Append to model" << std::endl;
+	
+	for (auto element : elements)
+		model->appendElement(element);
+}

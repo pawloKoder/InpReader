@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "basic.h"
 #include "keywords/keyword.h"
 
 
@@ -18,14 +19,10 @@ public:
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 
-	struct ElementData {
-		int number;
-		std::vector<int> node_numbers;
-	};
-
+    virtual void appendToModel(InpReader::Model*);
 private:
 	std::string type;
-	std::vector<ElementData> elements;
+	std::vector<InpReader::Element> elements;
 };
 
 }

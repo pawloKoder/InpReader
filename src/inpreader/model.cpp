@@ -18,11 +18,28 @@ void InpReader::Model::appendNode(Node node)
 }
 
 
+void InpReader::Model::appendElement(InpReader::Element element)
+{
+	elements[element.number] = element;
+}
+
+
 std::vector <InpReader::Node> InpReader::Model::getNodes()
 {
 	std::vector <InpReader::Node> result;
 	
 	for (auto i : nodes)
+		result.push_back(i.second);
+	
+	return result;
+}
+
+
+std::vector <InpReader::Element> InpReader::Model::getElements()
+{
+	std::vector <InpReader::Element> result;
+	
+	for (auto i : elements)
 		result.push_back(i.second);
 	
 	return result;
