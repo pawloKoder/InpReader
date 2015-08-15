@@ -22,14 +22,17 @@ class Model {
 public:
 	Model(std::shared_ptr <Keywords::BaseKeyword>);
 
-	void appendNode(InpReader::Node);
-	void appendElement(InpReader::Element);
+	void append(InpReader::Node);
+	void append(InpReader::Element);
+	void append(InpReader::NodeSet);
 	
 	std::vector<InpReader::Node> getNodes();
 	std::vector<InpReader::Element> getElements();
+
 private:
-	std::map<int, InpReader::Node> nodes;
 	std::map<int, InpReader::Element> elements;
+	std::map<int, InpReader::Node> nodes;
+	std::map<std::string, InpReader::NodeSet> nodeSets;
 };
 
 }

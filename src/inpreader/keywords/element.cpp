@@ -35,7 +35,7 @@ void Keywords::Element::appendToModel(InpReader::Model * model)
 		std::cout << "Element: Append to model" << std::endl;
 	
 	for (auto element : elements)
-		model->appendElement(element);
+		model->append(element);
 }
 
 void Keywords::Element::addParams(const std::map< std::string, std::string >& params)

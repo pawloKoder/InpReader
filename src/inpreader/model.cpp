@@ -12,15 +12,21 @@ InpReader::Model::Model(std::shared_ptr< Keywords::BaseKeyword > root)
 }
 
 
-void InpReader::Model::appendNode(Node node)
+void InpReader::Model::append(Node node)
 {
 	nodes[node.number] = node;
 }
 
 
-void InpReader::Model::appendElement(InpReader::Element element)
+void InpReader::Model::append(InpReader::Element element)
 {
 	elements[element.number] = element;
+}
+
+
+void InpReader::Model::append(InpReader::NodeSet nset)
+{
+	nodeSets[nset.name] = nset;
 }
 
 

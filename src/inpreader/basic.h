@@ -13,6 +13,11 @@ struct Node {
 	double dirCosine[3];
 };
 
+struct NodeSet {
+	std::string name;
+	std::vector<int> nodes;
+};
+
 struct Element {
 	int number;
 	std::vector<int> node_numbers;

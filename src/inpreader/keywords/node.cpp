@@ -34,5 +34,5 @@ void Keywords::Node::appendToModel(InpReader::Model * model)
 		std::cout << "Node: Append to model" << std::endl;
 	
 	for (auto node : nodes)
-		model->appendNode(node);
+		model->append(node);
 }

@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 
+#include "basic.h"
 #include "keywords/keyword.h"
 
 
@@ -18,9 +19,12 @@ public:
     
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 
+    virtual void appendToModel(InpReader::Model*);
+	
+    virtual void addParams(const std::map< std::string, std::string >&);
+
 private:
-	std::string name;
-	std::set<int> nodes;
+	InpReader::NodeSet nset;
 };
 
 }
