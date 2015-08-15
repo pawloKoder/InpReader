@@ -4,12 +4,13 @@
 #include <set>
 #include <string>
 
+#include "basic.h"
 #include "keywords/keyword.h"
 
 
 namespace Keywords {
 
-/* Manual reference : 5.13 */
+/* Manual reference : 5.12 */
 class ElementSet : public Keyword {
 public:
 	static const std::string keyName;
@@ -18,9 +19,12 @@ public:
     
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 
+	virtual void appendToModel(InpReader::Model*);
+	virtual void addParams(const std::map< std::string, std::string >&);
+
 private:
-	std::string name;
-	std::set<int> elements;
+	InpReader::ElementSet eset;
+	bool generate;
 };
 
 }

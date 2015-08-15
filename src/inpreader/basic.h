@@ -24,6 +24,11 @@ struct Element {
 	std::string type;
 };
 
+struct ElementSet {
+	std::string name;
+	std::vector<int> elements;
+};
+
 struct Boundary {
 	//TODO: Change type into enum
 	std::string type;

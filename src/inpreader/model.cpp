@@ -26,6 +26,12 @@ void InpReader::Model::append(InpReader::Element element)
 }
 
 
+void InpReader::Model::append(InpReader::ElementSet eset)
+{
+	elementSets[eset.name] = eset;
+}
+
+
 void InpReader::Model::append(InpReader::NodeSet nset)
 {
 	nodeSets[nset.name] = nset;
