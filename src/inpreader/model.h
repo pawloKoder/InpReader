@@ -25,14 +25,19 @@ public:
 	void append(InpReader::Node);
 	void append(InpReader::Element);
 	void append(InpReader::NodeSet);
+	void append(InpReader::Step);
 	
 	std::vector<InpReader::Node> getNodes();
 	std::vector<InpReader::Element> getElements();
+	std::vector<InpReader::Step> getSteps();
+
+	InpReader::NodeSet getNodeSet(std::string name);
 
 private:
 	std::map<int, InpReader::Element> elements;
 	std::map<int, InpReader::Node> nodes;
 	std::map<std::string, InpReader::NodeSet> nodeSets;
+	std::vector<InpReader::Step> steps;
 };
 
 }

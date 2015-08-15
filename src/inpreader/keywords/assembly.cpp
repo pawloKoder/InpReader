@@ -8,6 +8,7 @@
 #include "keywords/instance.h"
 #include "keywords/surface.h"
 #include "keywords/tie.h"
+#include "settings.h"
 #include "tokens/keyword.h"
 
 #include <functional>
@@ -41,6 +42,7 @@ Keywords::Keyword * Keywords::Assembly::appendKeyword(const Tokens::Keyword * to
 	for (auto childDef : possibleChildren)
 		if (token->name == childDef.first) {
 			auto child = std::shared_ptr <Keywords::Keyword>(childDef.second());
+			child->addParams(token->parameters);
 			children.push_back(child);
 			return child.get();
 		}
@@ -52,4 +54,16 @@ Keywords::Keyword * Keywords::Assembly::appendKeyword(const Tokens::Keyword * to
 	std::cout << "Unknown Keyword form Assembly: " << token->name << std::endl;
 
 	return this;
+}
+
+
+void Keywords::Assembly::appendToModel(InpReader::Model * model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Assembly: Append to model" << std::endl;
+	
+	//TODO: Add assembly to the model.
+
+	for (auto child : children)
+		child->appendToModel(model);
 }

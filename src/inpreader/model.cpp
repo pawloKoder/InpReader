@@ -1,5 +1,7 @@
 #include "model.h"
 
+#include <iostream>
+
 #include "keywords/basekeyword.h"
 #include "keywords/keyword.h"
 
@@ -30,6 +32,12 @@ void InpReader::Model::append(InpReader::NodeSet nset)
 }
 
 
+void InpReader::Model::append(InpReader::Step step)
+{
+	steps.push_back(step);
+}
+
+
 std::vector <InpReader::Node> InpReader::Model::getNodes()
 {
 	std::vector <InpReader::Node> result;
@@ -49,4 +57,21 @@ std::vector <InpReader::Element> InpReader::Model::getElements()
 		result.push_back(i.second);
 	
 	return result;
+}
+
+
+std::vector< InpReader::Step > InpReader::Model::getSteps()
+{
+	return steps;
+}
+
+
+InpReader::NodeSet InpReader::Model::getNodeSet(std::string name)
+{
+	try {
+		return nodeSets.at(name);
+	} catch (std::out_of_range) {
+		std::cerr << "Cannot find nodeset: " << name << std::endl;
+		return InpReader::NodeSet();
+	}
 }

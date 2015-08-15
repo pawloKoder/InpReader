@@ -40,18 +40,31 @@ void modelTest() {
 	
 	auto nodes = model.getNodes();
 	std::cout << "Number of nodes:" << nodes.size() << std::endl;
-	for (auto node : nodes)
-		std::cout << node.number << ": " << node.coordinate[0] << ", " << node.coordinate[1] << std::endl;
+	/*for (auto node : nodes)
+		std::cout << node.number << ": " << node.coordinate[0] << ", " << node.coordinate[1] << std::endl;*/
 	
 	
 	auto elements = model.getElements();
 	std::cout << "Number of elements:" << elements.size() << std::endl;
-	for (auto element : elements) {
+	/*for (auto element : elements) {
 		std::cout << element.number << "(" << element.type << "): ";
 		for (auto node : element.node_numbers)
 			std::cout << node << ", ";
 		std::cout << std::endl;
+	}*/
+	
+	auto steps = model.getSteps();
+	std::cout << "Number of steps:" << steps.size() << std::endl;
+	for (auto step : steps) {
+		std::cout << "Step name: " << step.name << std::endl;
+		for (auto boundary : step.boundaries) {
+			std::cout << boundary.type << ": ";
+			for (auto node : boundary.set.nodes)
+				std::cout << node << ", ";
+			std::cout << std::endl;
+		}
 	}
+	
 }
 
 

@@ -20,6 +20,9 @@ public:
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
+	
+    virtual void appendToModel(InpReader::Model*);
+    virtual void addParams(const std::map< std::string, std::string >&);
 
 private:
 	std::string name;

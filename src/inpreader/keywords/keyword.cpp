@@ -35,6 +35,13 @@ void Keywords::Keyword::appendToModel(InpReader::Model *)
 }
 
 
+void Keywords::Keyword::appendToStep(InpReader::Step*, InpReader::Model*)
+{
+	if (InpReader::verboseAppendToStep)
+		std::cout << "Keyword: Append to step" << std::endl;
+}
+
+
 void Keywords::Keyword::addParams(const std::map< std::string, std::string >&)
 {
 

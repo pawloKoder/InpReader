@@ -4,11 +4,13 @@
 #include <vector>
 #include <iostream>
 
+#include "basic.h"
 #include "keywords/boundary.h"
 #include "keywords/cload.h"
 #include "keywords/dsload.h"
 #include "keywords/dynamic.h"
 #include "keywords/static.h"
+#include "model.h"
 #include "settings.h"
 #include "tokens/keyword.h"
 
@@ -53,4 +55,28 @@ Keywords::Keyword * Keywords::Step::appendKeyword(const Tokens::Keyword * token)
 		std::cout << "Unknown Keyword form Step: " << token->name << std::endl;
 
 	return this;
+}
+
+
+void Keywords::Step::appendToModel(InpReader::Model * model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Step: Append to model" << std::endl;
+	
+	InpReader::Step step;
+	step.name = name;
+
+	for (auto child : children) {
+		child->appendToStep(&step, model);
+	}
+
+	model->append(step);
+}
+
+
+void Keywords::Step::addParams(const std::map< std::string, std::string >& params)
+{
+	auto t = params.find("name");
+	if (t != params.end())
+		name = t->second;
 }

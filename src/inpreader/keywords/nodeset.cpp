@@ -24,7 +24,7 @@ Keywords::Keyword* Keywords::NodeSet::appendDataLine(const Tokens::DataLine * li
 void Keywords::NodeSet::appendToModel(InpReader::Model * model)
 {
 	if (InpReader::verboseAppendToModel)
-		std::cout << "NodeSet: Append to model" << std::endl;
+		std::cout << "NodeSet: Append to model: " << nset.name << std::endl;
 	
 	model->append(nset);
 }

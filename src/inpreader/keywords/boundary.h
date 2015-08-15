@@ -17,6 +17,7 @@ public:
 	Boundary(Keyword * parent);
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+    virtual void appendToStep(InpReader::Step*, InpReader::Model*);
 
 private:
 	// Node number or node set label.

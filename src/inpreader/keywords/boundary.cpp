@@ -1,5 +1,7 @@
 #include "keywords/boundary.h"
 
+#include "basic.h"
+#include "model.h"
 #include "tokens/dataline.h"
 
 
@@ -18,5 +20,16 @@ Keywords::Keyword* Keywords::Boundary::appendDataLine(const Tokens::DataLine * l
 	}
 
 	return this;
+}
+
+
+void Keywords::Boundary::appendToStep(InpReader::Step* step, InpReader::Model* model)
+{
+	for (unsigned i = 0; i < nodeSetLabel.size(); ++i) {
+		InpReader::Boundary boundary;
+		boundary.type = boundaryType[i];
+		boundary.set = model->getNodeSet(nodeSetLabel[i]);
+		step->boundaries.push_back(boundary);
+	}
 }
 

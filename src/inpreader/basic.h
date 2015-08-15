@@ -24,6 +24,17 @@ struct Element {
 	std::string type;
 };
 
+struct Boundary {
+	//TODO: Change type into enum
+	std::string type;
+	NodeSet set;
+};
+
+struct Step {
+	std::string name;
+	std::vector<Boundary> boundaries;
+};
+
 }
 
 #endif

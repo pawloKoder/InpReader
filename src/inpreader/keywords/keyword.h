@@ -8,6 +8,7 @@
 namespace InpReader {
 
 class Model;
+class Step;
 
 }
 
@@ -31,6 +32,7 @@ public:
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
 
 	virtual void appendToModel(InpReader::Model *);
+	virtual void appendToStep(InpReader::Step *, InpReader::Model *);
 
 	virtual void addParams(const std::map <std::string, std::string> &);
 protected:
