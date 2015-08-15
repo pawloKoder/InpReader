@@ -10,6 +10,7 @@
 #include "keywords/nodeset.h"
 #include "keywords/material.h"
 #include "keywords/preprint.h"
+#include "settings.h"
 #include "tokens/keyword.h"
 
 #include <functional>
@@ -51,7 +52,8 @@ Keywords::Keyword * Keywords::Part::appendKeyword(const Tokens::Keyword * token)
 		return parent;
 	}
 
-	std::cout << "Unknown Keyword form Part: " << token->name << std::endl;
+	if (InpReader::verboseUnknownKeyword)
+		std::cout << "Unknown Keyword form Part: " << token->name << std::endl;
 
 	return this;
 }

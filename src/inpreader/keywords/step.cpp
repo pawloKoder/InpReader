@@ -9,6 +9,7 @@
 #include "keywords/dsload.h"
 #include "keywords/dynamic.h"
 #include "keywords/static.h"
+#include "settings.h"
 #include "tokens/keyword.h"
 
 
@@ -47,7 +48,9 @@ Keywords::Keyword * Keywords::Step::appendKeyword(const Tokens::Keyword * token)
 		return parent;
 	}
 
-	std::cout << "Unknown Keyword form Step: " << token->name << std::endl;
+	
+	if (InpReader::verboseUnknownKeyword)
+		std::cout << "Unknown Keyword form Step: " << token->name << std::endl;
 
 	return this;
 }

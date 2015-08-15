@@ -8,7 +8,7 @@
 #include "inpreader/parser.h"
 
 
-int main(int argc, char **argv) {
+void readerTest() {
 	Color::Modifier green(Color::FG_GREEN);
 	Color::Modifier def(Color::FG_DEFAULT);
 	
@@ -27,6 +27,20 @@ int main(int argc, char **argv) {
 		
 		InpReader::Model m(rootKeyword);
 	}
+}
+
+
+void modelTest() {
+	std::string example = "examples/plytka.inp";
+	InpReader::Model model(Parser::parse(Tokenizer::fromFile(example)));
 	
+}
+
+
+int main(int argc, char **argv) {
+
+	readerTest();
+	modelTest();
+
     return 0;
 }

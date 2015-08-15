@@ -8,6 +8,7 @@
 #include "keywords/elementset.h"
 #include "keywords/node.h"
 #include "keywords/nodeset.h"
+#include "settings.h"
 #include "tokens/keyword.h"
 
 
@@ -45,7 +46,9 @@ Keywords::Keyword * Keywords::Instance::appendKeyword(const Tokens::Keyword * to
 		return parent;
 	}
 
-	std::cout << "Unknown Keyword form Instance: " << token->name << std::endl;
+	
+	if (InpReader::verboseUnknownKeyword)
+		std::cout << "Unknown Keyword form Instance: " << token->name << std::endl;
 
 	return this;
 }
