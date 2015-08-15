@@ -14,6 +14,7 @@
 #include "keywords/part.h"
 #include "keywords/preprint.h"
 #include "keywords/step.h"
+#include "settings.h"
 #include "tokens/keyword.h"
 
 #include <functional>
@@ -72,3 +73,13 @@ const std::vector< std::shared_ptr< Keywords::Keyword > >& Keywords::BaseKeyword
 {
 	return children;
 }
+
+void Keywords::BaseKeyword::appendToModel(InpReader::Model* model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "BaseKeyword: Append to model" << std::endl;
+
+	for (auto child : children)
+		child->appendToModel(model);
+}
+

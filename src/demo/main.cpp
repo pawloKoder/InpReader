@@ -8,11 +8,12 @@
 #include "inpreader/parser.h"
 
 
+Color::Modifier green(Color::FG_GREEN);
+Color::Modifier def(Color::FG_DEFAULT);
+
+
 void readerTest() {
-	Color::Modifier green(Color::FG_GREEN);
-	Color::Modifier def(Color::FG_DEFAULT);
-	
-	std::vector <std::string> examples = {
+std::vector <std::string> examples = {
 		"examples/plytka.inp",
 		"examples/ramka.inp",
 		"examples/plyta+rama.inp",
@@ -32,8 +33,15 @@ void readerTest() {
 
 void modelTest() {
 	std::string example = "examples/plytka.inp";
+	
+	std::cout << green << "Model test: " << example << def << std::endl;
+	
 	InpReader::Model model(Parser::parse(Tokenizer::fromFile(example)));
 	
+	auto nodes = model.getNodes();
+	std::cout << "Number of nodes:" << nodes.size() << std::endl;
+	for (auto node : nodes)
+		std::cout << node.number << ": " << node.coordinate[0] << ", " << node.coordinate[1] << std::endl;
 }
 
 

@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "settings.h"
+
 
 Keywords::Keyword::Keyword(Keywords::Keyword * p):
 	parent(p)
@@ -28,5 +30,6 @@ Keywords::Keyword * Keywords::Keyword::appendKeyword(const Tokens::Keyword * tok
 
 void Keywords::Keyword::appendToModel(InpReader::Model *)
 {
-
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Keyword: Append to model" << std::endl;
 }

@@ -19,6 +19,8 @@ public:
 	virtual Keywords::Keyword * appendComment(const Tokens::Comment *);
 
 	const std::vector <std::shared_ptr <Keywords::Keyword> > & getChildren() const;
+	
+	virtual void appendToModel(InpReader::Model *);
 private:
 	std::vector <std::shared_ptr <Keywords::Keyword> > children;
 };

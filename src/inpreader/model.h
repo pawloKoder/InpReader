@@ -4,6 +4,7 @@
 #include <map>
 #include <memory>
 #include <string>
+#include <vector>
 
 #include "basic.h"
 
@@ -23,7 +24,7 @@ public:
 
 	void appendNode(InpReader::Node);
 	
-	
+	std::vector<InpReader::Node> getNodes();
 private:
 	std::map<int, InpReader::Node> nodes;
 };

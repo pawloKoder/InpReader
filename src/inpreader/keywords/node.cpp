@@ -1,6 +1,7 @@
 #include <keywords/node.h>
 
 #include "model.h"
+#include "settings.h"
 #include "tokens/dataline.h"
 
 
@@ -29,6 +30,9 @@ Keywords::Keyword* Keywords::Node::appendDataLine(const Tokens::DataLine * line)
 
 void Keywords::Node::appendToModel(InpReader::Model * model)
 {
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Node: Append to model" << std::endl;
+	
 	for (auto node : nodes)
 		model->appendNode(node);
 }

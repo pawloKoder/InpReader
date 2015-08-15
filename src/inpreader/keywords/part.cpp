@@ -57,3 +57,15 @@ Keywords::Keyword * Keywords::Part::appendKeyword(const Tokens::Keyword * token)
 
 	return this;
 }
+
+
+void Keywords::Part::appendToModel(InpReader::Model * model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Part: Append to model" << std::endl;
+	
+	//TODO: Add parts to the model.
+
+	for (auto child : children)
+		child->appendToModel(model);
+}
