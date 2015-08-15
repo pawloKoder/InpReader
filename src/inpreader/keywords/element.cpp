@@ -21,6 +21,8 @@ Keywords::Keyword* Keywords::Element::appendDataLine(const Tokens::DataLine * li
 
 	for (size_t i = 1; i < line->data.size(); ++i)
 		data.node_numbers.push_back(std::stoi(line->data[i]));
+	
+	data.type = type;
 
 	elements.push_back(data);
 
@@ -35,3 +37,11 @@ void Keywords::Element::appendToModel(InpReader::Model * model)
 	for (auto element : elements)
 		model->appendElement(element);
 }
+
+void Keywords::Element::addParams(const std::map< std::string, std::string >& params)
+{
+	auto t = params.find("type");
+	if (t != params.end())
+		type = t->second;
+}
+

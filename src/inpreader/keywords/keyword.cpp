@@ -33,3 +33,9 @@ void Keywords::Keyword::appendToModel(InpReader::Model *)
 	if (InpReader::verboseAppendToModel)
 		std::cout << "Keyword: Append to model" << std::endl;
 }
+
+
+void Keywords::Keyword::addParams(const std::map< std::string, std::string >&)
+{
+
+}

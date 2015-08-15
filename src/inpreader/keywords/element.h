@@ -1,6 +1,7 @@
 #ifndef KEYWORDS_ELEMENT_H
 #define KEYWORDS_ELEMENT_H
 
+#include <map>
 #include <string>
 #include <vector>
 
@@ -18,6 +19,8 @@ public:
 	Element(Keyword * parent);
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+
+    virtual void addParams(const std::map< std::string, std::string >&);
 
     virtual void appendToModel(InpReader::Model*);
 private:

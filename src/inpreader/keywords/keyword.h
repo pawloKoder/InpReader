@@ -1,6 +1,7 @@
 #ifndef KEYWORD_H
 #define KEYWORD_H
 
+#include <map>
 #include <string>
 
 
@@ -31,6 +32,7 @@ public:
 
 	virtual void appendToModel(InpReader::Model *);
 
+	virtual void addParams(const std::map <std::string, std::string> &);
 protected:
 	Keyword * parent;
 };
