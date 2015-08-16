@@ -44,6 +44,12 @@ void InpReader::Model::append(InpReader::Step step)
 }
 
 
+void InpReader::Model::append(InpReader::ElementSurface surface)
+{
+	surfaces[surface.name] = surface;
+}
+
+
 std::vector <InpReader::Node> InpReader::Model::getNodes()
 {
 	std::vector <InpReader::Node> result;
@@ -79,5 +85,16 @@ InpReader::NodeSet InpReader::Model::getNodeSet(std::string name)
 	} catch (std::out_of_range) {
 		std::cerr << "Cannot find nodeset: " << name << std::endl;
 		return InpReader::NodeSet();
+	}
+}
+
+
+InpReader::ElementSet InpReader::Model::getElementSet(std::string name)
+{
+	try {
+		return elementSets.at(name);
+	} catch (std::out_of_range) {
+		std::cerr << "Cannot find elementset: " << name << std::endl;
+		return InpReader::ElementSet();
 	}
 }

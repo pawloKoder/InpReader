@@ -29,6 +29,12 @@ struct ElementSet {
 	std::vector<int> elements;
 };
 
+struct ElementSurface {
+	std::string name;
+	std::vector<ElementSet> eset;
+	std::vector<std::string> face;
+};
+
 struct Boundary {
 	//TODO: Change type into enum
 	std::string type;

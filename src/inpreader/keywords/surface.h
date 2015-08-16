@@ -17,9 +17,12 @@ public:
 	Surface(Keyword * parent);
     
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+	virtual void addParams(const std::map< std::string, std::string >&);
+	virtual void appendToModel(InpReader::Model*);
 
 private:
 	std::string name;
+	std::string type;
 	
 	// The current only suported surface is TYPE=ELEMENT
 	std::vector<std::string> elementSet;
