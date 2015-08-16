@@ -35,6 +35,7 @@ public:
 
 	InpReader::NodeSet getNodeSet(std::string name);
 	InpReader::ElementSet getElementSet(std::string name);
+	InpReader::ElementSurface getElementSurface(std::string name);
 
 private:
 	std::map<int, InpReader::Element> elements;

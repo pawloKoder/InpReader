@@ -1,5 +1,7 @@
 #include <keywords/dsload.h>
 
+#include "model.h"
+#include "settings.h"
 #include "tokens/dataline.h"
 
 
@@ -21,8 +23,24 @@ Keywords::Keyword* Keywords::DSLoad::appendDataLine(const Tokens::DataLine * lin
 	if (line->data.size() >= 3)
 		data.magnitude = std::stod(line->data[2]);
 
-	load.push_back(data);
+	loads.push_back(data);
 
 	return this;
 }
+
+
+void Keywords::DSLoad::appendToStep(InpReader::Step * step, InpReader::Model * model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Part: Append to model" << std::endl;
+
+	for (auto load : loads) {
+		InpReader::DSLoad l;
+		l.surface = model->getElementSurface(load.name);
+		l.type = load.type;
+		l.magnitude = load.magnitude;
+		step->dsloads.push_back(l);
+	}
+}
+
 

@@ -58,10 +58,21 @@ void modelTest() {
 	for (auto step : steps) {
 		std::cout << "Step name: " << step.name << std::endl;
 		for (auto boundary : step.boundaries) {
-			std::cout << boundary.type << ": ";
+			std::cout << "Boundary " << boundary.type << ": ";
 			for (auto node : boundary.set.nodes)
 				std::cout << node << ", ";
 			std::cout << std::endl;
+		}
+		for (auto load : step.dsloads) {
+			std::cout << "Load " << load.type << "(" << load.magnitude << ") "
+				<< load.surface.name << ":" << std::endl;
+			for (unsigned i = 0; i < load.surface.eset.size(); ++i) {
+				std::cout << load.surface.eset[i].name << "(" << load.surface.face[i] << "): ";
+				for (auto element : load.surface.eset[i].elements) {
+					std::cout << element << ", ";
+				}
+				std::cout << std::endl;
+			}
 		}
 	}
 	

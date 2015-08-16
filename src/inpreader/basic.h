@@ -35,6 +35,13 @@ struct ElementSurface {
 	std::vector<std::string> face;
 };
 
+struct DSLoad {
+	//TODO: Currently only uniform load is supported
+	ElementSurface surface;
+	std::string type;
+	double magnitude;
+};
+
 struct Boundary {
 	//TODO: Change type into enum
 	std::string type;
@@ -44,6 +51,7 @@ struct Boundary {
 struct Step {
 	std::string name;
 	std::vector<Boundary> boundaries;
+	std::vector<DSLoad> dsloads;
 };
 
 }

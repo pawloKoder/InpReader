@@ -98,3 +98,14 @@ InpReader::ElementSet InpReader::Model::getElementSet(std::string name)
 		return InpReader::ElementSet();
 	}
 }
+
+
+InpReader::ElementSurface InpReader::Model::getElementSurface(std::string name)
+{
+	try {
+		return surfaces.at(name);
+	} catch (std::out_of_range) {
+		std::cerr << "Cannot find surface: " << name << std::endl;
+		return InpReader::ElementSurface();
+	}
+}
