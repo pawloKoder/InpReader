@@ -6,9 +6,9 @@
 #include "keywords/keyword.h"
 
 
-InpReader::Model::Model(std::shared_ptr< Keywords::BaseKeyword > root)
+InpReader::Model::Model(std::unique_ptr< Keywords::BaseKeyword > root)
 {
-	for (auto child : root->getChildren()) {
+	for (const auto & child : root->getChildren()) {
 		child->appendToModel(this);
 	}
 }

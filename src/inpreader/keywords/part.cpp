@@ -43,10 +43,10 @@ Keywords::Keyword * Keywords::Part::appendKeyword(const Tokens::Keyword * token)
 
 	for (auto childDef : possibleChildren)
 		if (token->name == childDef.first) {
-			auto child = std::shared_ptr <Keywords::Keyword>(childDef.second());
+			auto child = childDef.second();
 			child->addParams(token->parameters);
-			children.push_back(child);
-			return child.get();
+			children.push_back(std::unique_ptr <Keywords::Keyword>(child));
+			return child;
 		}
 		
 	if (token->name == keyEndName) {
@@ -67,6 +67,6 @@ void Keywords::Part::appendToModel(InpReader::Model * model)
 	
 	//TODO: Add parts to the model.
 
-	for (auto child : children)
+	for (const auto & child : children)
 		child->appendToModel(model);
 }

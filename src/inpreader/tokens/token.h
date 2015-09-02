@@ -15,7 +15,7 @@ class Keyword;
 namespace Tokens {
 
 struct Token {
-	static std::shared_ptr <Token> fromString(std::string);
+	static std::unique_ptr <Token> fromString(std::string);
 	
 	virtual Keywords::Keyword * appendToKeyword(Keywords::Keyword *) = 0;
 	

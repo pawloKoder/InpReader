@@ -24,7 +24,7 @@ public:
     virtual void appendToModel(InpReader::Model*);
 
 private:
-	std::vector <std::shared_ptr <Keywords::Keyword> > children;
+	std::vector <std::unique_ptr <Keywords::Keyword> > children;
 };
 
 }

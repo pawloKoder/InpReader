@@ -9,7 +9,7 @@
 
 
 namespace Tokenizer {
-	std::vector <std::shared_ptr <Tokens::Token> > fromFile(std::string filename);
+	std::vector <std::unique_ptr <Tokens::Token> > fromFile(std::string filename);
 };
 
 #endif //TOKENIZER_H

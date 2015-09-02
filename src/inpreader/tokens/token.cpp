@@ -8,15 +8,15 @@
 #include "tokens/keyword.h"
 
 
-std::shared_ptr <Tokens::Token> Tokens::Token::fromString(std::string line)
+std::unique_ptr <Tokens::Token> Tokens::Token::fromString(std::string line)
 {
 	if (line.length() >= 2 && line[0] == '*' && line[1] == '*')
-		return std::shared_ptr <Tokens::Comment> (new Tokens::Comment(line));
+		return std::unique_ptr <Tokens::Comment> (new Tokens::Comment(line));
 		
 	if (line.length() >= 1 && line[0] == '*')
-		return std::shared_ptr <Tokens::Keyword> (new Tokens::Keyword(line));
+		return std::unique_ptr <Tokens::Keyword> (new Tokens::Keyword(line));
 	
-	return std::shared_ptr <Tokens::DataLine> (new Tokens::DataLine(line));
+	return std::unique_ptr <Tokens::DataLine> (new Tokens::DataLine(line));
 }
 
 

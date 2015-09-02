@@ -20,7 +20,7 @@ namespace InpReader {
 /* Represents a FEM model */
 class Model {
 public:
-	Model(std::shared_ptr <Keywords::BaseKeyword>);
+	Model(std::unique_ptr <Keywords::BaseKeyword>);
 
 	void append(InpReader::Element);
 	void append(InpReader::ElementSet);

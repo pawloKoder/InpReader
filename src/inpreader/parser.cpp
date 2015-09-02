@@ -7,12 +7,12 @@
 #include "tokens/token.h"
 
 
-std::shared_ptr <Keywords::BaseKeyword> Parser::parse(std::vector < std::shared_ptr< Tokens::Token > > tokens)
+std::unique_ptr <Keywords::BaseKeyword> Parser::parse(std::vector < std::unique_ptr< Tokens::Token > > tokens)
 {
-	std::shared_ptr <Keywords::BaseKeyword> root(new Keywords::BaseKeyword);
+	std::unique_ptr <Keywords::BaseKeyword> root(new Keywords::BaseKeyword);
 	Keywords::Keyword * current = root.get();
 
-	for (auto token : tokens) {
+	for (const auto & token : tokens) {
 		try {
 			current = token->appendToKeyword(current);
 		} catch (std::exception e) {

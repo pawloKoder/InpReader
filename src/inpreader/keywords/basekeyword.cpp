@@ -58,10 +58,10 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 
 	for (auto childDef : possibleChildren)
 		if (token->name == childDef.first) {
-			auto child = std::shared_ptr <Keywords::Keyword>(childDef.second());
+			auto child = childDef.second();
 			child->addParams(token->parameters);
-			children.push_back(child);
-			return child.get();
+			children.push_back(std::unique_ptr <Keywords::Keyword> (child));
+			return child;
 		}
 
 	std::cout << "Unknown Keyword form Base: " << token->name << std::endl;
@@ -70,7 +70,7 @@ Keywords::Keyword * Keywords::BaseKeyword::appendKeyword(const Tokens::Keyword *
 }
 
 
-const std::vector< std::shared_ptr< Keywords::Keyword > >& Keywords::BaseKeyword::getChildren() const
+const std::vector< std::unique_ptr< Keywords::Keyword > >& Keywords::BaseKeyword::getChildren() const
 {
 	return children;
 }
@@ -80,7 +80,7 @@ void Keywords::BaseKeyword::appendToModel(InpReader::Model* model)
 	if (InpReader::verboseAppendToModel)
 		std::cout << "BaseKeyword: Append to model" << std::endl;
 
-	for (auto child : children)
+	for (const auto & child : children)
 		child->appendToModel(model);
 }
 

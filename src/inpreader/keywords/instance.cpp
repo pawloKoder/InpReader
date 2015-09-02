@@ -37,9 +37,9 @@ Keywords::Keyword * Keywords::Instance::appendKeyword(const Tokens::Keyword * to
 
 	for (auto childDef : possibleChildren)
 		if (token->name == childDef.first) {
-			auto child = std::shared_ptr <Keywords::Keyword>(childDef.second());
-			children.push_back(child);
-			return child.get();
+			auto child = childDef.second();
+			children.push_back(std::unique_ptr <Keywords::Keyword>(child));
+			return child;
 		}
 		
 	if (token->name == keyEndName) {

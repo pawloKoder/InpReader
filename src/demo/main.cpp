@@ -24,9 +24,9 @@ std::vector <std::string> examples = {
 		
 		auto tokens = Tokenizer::fromFile(example);
 		
-		auto rootKeyword = Parser::parse(tokens);
+		auto rootKeyword = Parser::parse(std::move(tokens));
 		
-		InpReader::Model m(rootKeyword);
+		InpReader::Model m(std::move(rootKeyword));
 	}
 }
 
@@ -36,7 +36,7 @@ void modelTest() {
 	
 	std::cout << green << "Model test: " << example << def << std::endl;
 	
-	InpReader::Model model(Parser::parse(Tokenizer::fromFile(example)));
+	InpReader::Model model(std::move(Parser::parse(Tokenizer::fromFile(example))));
 	
 	auto nodes = model.getNodes();
 	std::cout << "Number of nodes:" << nodes.size() << std::endl;

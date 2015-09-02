@@ -1,3 +1,5 @@
+include_directories (${inpreader_SOURCE_DIR}/src/inpreader)
+
 set (demo_SOURCES
     main.cpp
 )

@@ -5,15 +5,11 @@
 #include <vector>
 
 #include "tokens/token.h"
-
-
-namespace Keywords {
-	class BaseKeyword;
-}
+#include "keywords/basekeyword.h"
 
 
 namespace Parser {
-	std::shared_ptr <Keywords::BaseKeyword> parse(std::vector <std::shared_ptr <Tokens::Token> >);
+	std::unique_ptr <Keywords::BaseKeyword> parse(std::vector <std::unique_ptr <Tokens::Token> >);
 };
 
 #endif //PARSER_H

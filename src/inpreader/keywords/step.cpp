@@ -41,9 +41,9 @@ Keywords::Keyword * Keywords::Step::appendKeyword(const Tokens::Keyword * token)
 
 	for (auto childDef : possibleChildren)
 		if (token->name == childDef.first) {
-			auto child = std::shared_ptr <Keywords::Keyword>(childDef.second());
-			children.push_back(child);
-			return child.get();
+			auto child = childDef.second();
+			children.push_back(std::unique_ptr <Keywords::Keyword> (child));
+			return child;
 		}
 		
 	if (token->name == keyEndName) {
@@ -66,7 +66,7 @@ void Keywords::Step::appendToModel(InpReader::Model * model)
 	InpReader::Step step;
 	step.name = name;
 
-	for (auto child : children) {
+	for (const auto & child : children) {
 		child->appendToStep(&step, model);
 	}
 

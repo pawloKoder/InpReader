@@ -27,8 +27,8 @@ public:
 private:
 	std::string name;
 	
-	std::shared_ptr <Keywords::Density> density;
-	std::shared_ptr <Keywords::Elastic> elastic;
+	std::unique_ptr <Keywords::Density> density;
+	std::unique_ptr <Keywords::Elastic> elastic;
 };
 
 

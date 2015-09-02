@@ -18,11 +18,11 @@ public:
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
 	virtual Keywords::Keyword * appendComment(const Tokens::Comment *);
 
-	const std::vector <std::shared_ptr <Keywords::Keyword> > & getChildren() const;
+	const std::vector <std::unique_ptr <Keywords::Keyword> > & getChildren() const;
 	
 	virtual void appendToModel(InpReader::Model *);
 private:
-	std::vector <std::shared_ptr <Keywords::Keyword> > children;
+	std::vector <std::unique_ptr <Keywords::Keyword> > children;
 };
 
 }

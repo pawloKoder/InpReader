@@ -7,10 +7,10 @@
 #include "tokens/token.h"
 
 
-std::vector <std::shared_ptr <Tokens::Token> > Tokenizer::fromFile(std::string filename) {
+std::vector <std::unique_ptr <Tokens::Token> > Tokenizer::fromFile(std::string filename) {
 	std::ifstream input(filename);
 	
-	std::vector <std::shared_ptr <Tokens::Token> > result;
+	std::vector <std::unique_ptr <Tokens::Token> > result;
 	int lineNum = 1;
 	while (input.good()) {
 		std::string line;
@@ -18,7 +18,7 @@ std::vector <std::shared_ptr <Tokens::Token> > Tokenizer::fromFile(std::string f
 		auto token = Tokens::Token::fromString(line);
 		token->file = filename;
 		token->lineNum = lineNum++;
-		result.push_back(token);
+		result.push_back(std::move(token));
 	}
 	
 	return result;
