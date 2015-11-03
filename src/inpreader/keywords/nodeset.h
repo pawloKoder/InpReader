@@ -25,6 +25,7 @@ public:
 
 private:
 	InpReader::NodeSet nset;
+	bool nodeGeneration;
 };
 
 }
