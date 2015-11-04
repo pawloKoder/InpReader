@@ -21,6 +21,8 @@ public:
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
 	virtual Keywords::Keyword * appendKeyword(const Tokens::Keyword *);
 
+	virtual void appendToModel(InpReader::Model*);
+
 private:
 	std::string name;
 	std::vector <std::unique_ptr <Keywords::Keyword> > children;

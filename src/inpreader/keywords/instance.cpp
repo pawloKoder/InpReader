@@ -52,3 +52,16 @@ Keywords::Keyword * Keywords::Instance::appendKeyword(const Tokens::Keyword * to
 
 	return this;
 }
+
+
+
+void Keywords::Instance::appendToModel(InpReader::Model * model)
+{
+	if (InpReader::verboseAppendToModel)
+		std::cout << "Instance: Append to model" << std::endl;
+	
+	//TODO: Add instances to the model.
+
+	for (const auto & child : children)
+		child->appendToModel(model);
+}
