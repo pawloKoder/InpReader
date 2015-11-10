@@ -32,7 +32,7 @@ Keywords::Keyword* Keywords::DSLoad::appendDataLine(const Tokens::DataLine * lin
 void Keywords::DSLoad::appendToStep(InpReader::Step * step, InpReader::Model * model)
 {
 	if (InpReader::verboseAppendToModel)
-		std::cout << "Part: Append to model" << std::endl;
+		std::cout << "DSload: Append to model" << std::endl;
 
 	for (auto load : loads) {
 		InpReader::DSLoad l;

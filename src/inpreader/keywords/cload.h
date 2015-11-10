@@ -17,6 +17,7 @@ public:
 	CLoad(Keyword * parent);
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
+	virtual void appendToStep(InpReader::Step*, InpReader::Model*);
 
 	struct ConcentratedLoadData {
 		//Node number or node set label.
@@ -28,7 +29,7 @@ public:
 	};
 
 private:
-	std::vector<ConcentratedLoadData> load;
+	std::vector<ConcentratedLoadData> loads;
 };
 
 }

@@ -17,7 +17,7 @@ public:
 	DSLoad(Keyword * parent);
 
 	virtual Keywords::Keyword * appendDataLine(const Tokens::DataLine *);
-    virtual void appendToStep(InpReader::Step*, InpReader::Model*);
+	virtual void appendToStep(InpReader::Step*, InpReader::Model*);
 
 	struct DistributedSurfaceData {
 		//Surface name.

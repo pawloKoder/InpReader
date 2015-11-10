@@ -19,7 +19,6 @@
 
 #include <functional>
 #include <vector>
-#include <boost/concept_check.hpp>
 
 
 Keywords::BaseKeyword::BaseKeyword():
