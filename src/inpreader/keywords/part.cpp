@@ -15,7 +15,6 @@
 
 #include <functional>
 #include <vector>
-#include <boost/concept_check.hpp>
 
 
 const std::string Keywords::Part::keyName = "Part";
