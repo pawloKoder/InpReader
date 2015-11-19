@@ -26,6 +26,8 @@ public:
 		std::string type;
 		//Magnitude
 		double magnitude;
+		//Components of traction vector directions
+		double traction_vector[3];
 	};
 
 private:

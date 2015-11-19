@@ -39,6 +39,7 @@ struct DSLoad {
 	ElementSurface surface;
 	std::string type;
 	double magnitude;
+	double traction_vector[3];
 };
 
 struct CLoad {

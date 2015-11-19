@@ -22,6 +22,9 @@ Keywords::Keyword* Keywords::DSLoad::appendDataLine(const Tokens::DataLine * lin
 		data.type = line->data[1];
 	if (line->data.size() >= 3)
 		data.magnitude = std::stod(line->data[2]);
+	for (int i = 0; i < 3; ++i)
+		if ((int)line->data.size() >= 4 + i)
+			data.traction_vector[i] = std::stod(line->data[3 + i]);
 
 	loads.push_back(data);
 
@@ -39,6 +42,8 @@ void Keywords::DSLoad::appendToStep(InpReader::Step * step, InpReader::Model * m
 		l.surface = model->getElementSurface(load.name);
 		l.type = load.type;
 		l.magnitude = load.magnitude;
+		for (int i = 0; i < 3; ++i)
+			l.traction_vector[i] = load.traction_vector[i];
 		step->dsloads.push_back(l);
 	}
 }
