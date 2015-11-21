@@ -1,5 +1,4 @@
-The *.inp files reader     {#mainpage}
-======================
+# The *.inp files reader
 
 ### Overview
 
@@ -34,6 +33,8 @@ The library uses **CMake** build system. There is simple example of building the
 After setup of project use this command to compile the **Doxygen** files.
 
     make doc
+
+Doxygen requieres to add {#mainpage} in the main page.
 
 ### Simple Usage
 
