@@ -15,7 +15,7 @@ std::unique_ptr <Keywords::BaseKeyword> Parser::parse(std::vector < std::unique_
 	for (const auto & token : tokens) {
 		try {
 			current = token->appendToKeyword(current);
-		} catch (std::exception e) {
+		} catch (std::exception& e) {
 			std::cerr << "Error with processing " << token->identifier() << " : " << e.what() << std::endl;
 			break;
 		}
