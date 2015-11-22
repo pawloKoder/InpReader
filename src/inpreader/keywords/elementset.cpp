@@ -1,5 +1,7 @@
 #include <keywords/elementset.h>
 
+#include <string>
+
 #include "model.h"
 #include "settings.h"
 #include "tokens/dataline.h"
@@ -17,15 +19,26 @@ Keywords::ElementSet::ElementSet(Keywords::Keyword* parent):
 Keywords::Keyword* Keywords::ElementSet::appendDataLine(const Tokens::DataLine * line)
 {
 	if (!generate)
-		for (size_t i = 0; i < line->data.size(); ++i)
-			eset.elements.push_back(std::stoi(line->data[i]));
+		for (size_t i = 0; i < line->data.size(); ++i) {
+			std::string current = line->data[i];
+			try {
+				eset.elements.push_back(std::stoi(current));
+			} catch (const std::invalid_argument&){
+				std::cerr << "ElementSet: Invalid element number \"" << current << "\"\n";
+			}
+		}
 	else {
-		int begin = std::stoi(line->data[0]);
-		int end = std::stoi(line->data[1]);
-		int increment = std::stoi(line->data[2]);
-		
-		for (int i = begin; i <= end; i += increment)
+		try {
+			int begin = std::stoi(line->data[0]);
+			int end = std::stoi(line->data[1]);
+			int increment = std::stoi(line->data[2]);
+			
+			for (int i = begin; i <= end; i += increment)
 			eset.elements.push_back(i);
+		} catch (const std::invalid_argument& ia){
+			std::cerr << "ElementSet: Invalid element number or increment: " << ia.what() << '\n';
+		}
+		
 	}
 
 	return this;
