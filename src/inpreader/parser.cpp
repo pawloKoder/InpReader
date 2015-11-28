@@ -20,6 +20,6 @@ std::unique_ptr <Keywords::BaseKeyword> Parser::parse(std::vector < std::unique_
 			break;
 		}
 	}
-	
+
 	return root;
 }

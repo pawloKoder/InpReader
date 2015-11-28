@@ -22,7 +22,7 @@ class Model {
 public:
 	/// Creates an empty model.
 	Model() = default;
-	
+
 	/// Creates a model basing on tree of keywords.
 	Model(std::unique_ptr <Keywords::BaseKeyword>);
 
